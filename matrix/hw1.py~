@@ -37,7 +37,7 @@ p3_vector_sum_2 = [0, one, one]
 # Leave an empty set if it cannot be expressed in terms of the other vectors.
 
 u_0010010 = {'c','d','e'}
-u_0100010 = {'b','c','d','e'}
+u_0100010 = {}
 
 
 

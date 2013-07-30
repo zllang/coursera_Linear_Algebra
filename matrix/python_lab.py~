@@ -87,7 +87,7 @@ square_dict = {...}
 
 ## Task 24
 D = {'red','white','blue'}
-identity_dict = {x:y for (x,y) in zip(D,D) if x==y}
+identity_dict = {x:y for (x,y) in D if x == y}
 
 ## Task 25
 base = 10
