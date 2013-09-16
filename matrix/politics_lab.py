@@ -129,16 +129,36 @@ def find_average_similarity(sen, sen_set, voting_dict):
         >>> find_average_similarity('Klein', {'Fox-Epstein','Ravella'}, vd)
         -0.5
     """
+    from vecutil import list2vec
     _sum = 0
     vec0 = list2vec(voting_dict[sen])
     for sen_name in sen_set:
         vec1 = list2vec(voting_dict[sen_name])
         _sum += vec0 * vec1
-
     return _sum/len(sen_set)
 def find_most_average_Democrat():
     pass
-most_average_Democrat = '...' # give the last name (or code that computes the last name)
+def max_average_Democrat():
+    _other_set = set()
+    _democrat_set = set()
+    for line in voting_data:
+        _item = line.split(" ")
+        if(_item[1]=="D"):
+            _democrat_set.add(_item[0]) #_democrat_dict[_item[0]] = [int(ele) for ele in _item[3:]]
+        else:
+            _other_set.add(_item[0]) #_other_dict[_item[0]] = [int(ele) for ele in _item[3:]]
+    max_average = 0
+    max_sen_name = ''
+    _voting_dict = create_voting_dict()
+    for sen_name in _other_set:
+        cur_average = find_average_similarity(sen_name,_democrat_set,_voting_dict)
+        if(cur_average>max_average or max_sen_name==''):
+            max_average = cur_average
+            max_sen_name = sen_name
+    return max_sen_name
+
+
+most_average_Democrat = max_average_Democrat() # give the last name (or code that computes the last name)
 
 
 # Task 7
