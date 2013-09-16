@@ -136,7 +136,8 @@ def find_average_similarity(sen, sen_set, voting_dict):
         _sum += vec0 * vec1
 
     return _sum/len(sen_set)
-
+def find_most_average_Democrat():
+    pass
 most_average_Democrat = '...' # give the last name (or code that computes the last name)
 
 
